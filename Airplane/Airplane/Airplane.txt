@@ -1,0 +1,92 @@
+this document is Airplane Reservation System a related explanation.
+
+Development principles
+1. every function divide into units.
+2. use optimal memory.
+3. make it easy to expand.
+4. The program makes it flexible.
+
+
+Airport Type
+Asia, Oceania, Europe, Africa, NortAmerica, SouthAmerica
+
+Code
+struct Airport { 
+	char area[16];
+	int area_number;
+	int country_number;
+}Airport;
+
+Asia - 1000
+Oceania - 2000
+Europe - 3000
+Africa - 4000
+NorthAmerica - 5000
+SouthAmerica - 6000
+
+Asia
+1100 - Korea
+1200 - Tiwan
+1300 - China
+1400 - Vietnam
+
+Oceania 
+2100 - NewZealand
+2200 - Australia
+2300 - Guam
+
+Europe
+3100 - Gremany
+3200 - France
+3300 - Monaco
+3400 - Spain
+3500 - Sweden 
+
+Africa 
+4600 - Egypt
+4700 - Ghana
+4800 - Kenya
+
+NorthAmerica 
+5100 - Canada
+5200 - USA
+5300 - Cuba
+
+SouthAmerica 
+6100 - Argentina
+6200 - Brazil
+6300 - Peru
+6400 - Venezuela
+
+Passenger Information
+1. Starting Position
+2. Ending Position
+3. Seat Number
+4. airplane inpormation
+5. Starting Time
+6. Ending Time
+
+Passenger_Info {
+	int Starting;
+	int Ending;
+	int area_number;
+	int SeatNumber;
+	int Starting_T;
+	int Ending_T;
+}
+
+Seat Infomation 
+1. 40 seats
+2. 10 columns 4 rows
+
+bool seat[10][4];
+for(int i=0; i<10; i++) {
+	for(int j=0; j<4; j++) {
+		if(seat[i][j]) == false {
+			printf("O ");
+		} else {
+			printf("X ");
+		}
+	}
+	printf("\n");
+}

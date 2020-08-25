@@ -25,38 +25,38 @@ NorthAmerica - 5000
 SouthAmerica - 6000
 
 Asia
-1010 - Korea
-1020 - Tiwan
-1030 - China
-1050 - Vietnam
+1100 - Korea
+1200 - Tiwan
+1300 - China
+1400 - Vietnam
 
 Oceania 
-2010 - NewZealand
-2020 - Australia
-2030 - Guam
+2100 - NewZealand
+2200 - Australia
+2300 - Guam
 
 Europe
-3010 - Gremany
-3020 - France
-3030 - Monaco
-3040 - Spain
-3050 - Sweden 
+3100 - Gremany
+3200 - France
+3300 - Monaco
+3400 - Spain
+3500 - Sweden 
 
 Africa 
-4010 - Egypt
-4020 - Ghana
-4030 - Kenya
+4600 - Egypt
+4700 - Ghana
+4800 - Kenya
 
 NorthAmerica 
-5010 - Canada
-5020 - USA
-5030 - Cuba
+5100 - Canada
+5200 - USA
+5300 - Cuba
 
 SouthAmerica 
-6010 - Argentina
-6020 - Brazil
-6030 - Peru
-6040 - Venezuela
+6100 - Argentina
+6200 - Brazil
+6300 - Peru
+6400 - Venezuela
 
 Passenger Information
 1. Starting Position
@@ -73,8 +73,7 @@ Passenger_Info {
 	int SeatNumber;
 	int Starting_T;
 	int Ending_T;
-}Passerger_Info;
-
+}
 
 Seat Infomation 
 1. 40 seats
@@ -91,6 +90,3 @@ for(int i=0; i<10; i++) {
 	}
 	printf("\n");
 }
-
-
-

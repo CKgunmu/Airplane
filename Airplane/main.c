@@ -4,13 +4,19 @@
 #include <airplane.h>
 
 struct Passenger_Info {
-	char Starting;
-	char Ending;
-	char Seat_row;
-	char Seat_col;
-	int Starting_T[5];
-	int Ending_T[5];
-}
+	char Starting[16];
+	char Ending[16];
+	int CountryCode;
+	int Seat_row;
+	int Seat_col;
+}P_info;
+
+struct Passenger_Time {
+	int month
+	int day;
+	int hour;
+}P_time;
+
 
 int main(void) {
 	

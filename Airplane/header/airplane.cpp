@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+struct Passenger_Info {
+	char Starting[16];
+	char Ending[16];	
+	int Seat;
+}P_info;
+
+
+struct Passenger_Time {
+    int month;
+    int day;
+    int hour;
+}P_time;
+
+
 char dic[22][16]= {
 	"Korea","Tiwan","China","Vietnam",
 	"NewZealand","Australia","Guam",
@@ -20,119 +34,76 @@ int ndic[22] = {
 	6100,6200,6300,6400
 };
 
-char ** Country = (char*)malloc(sizeof(char *)*23);
-for(int i=0; i<22; i++) {
-   	Country[i] = (char*)malloc(sizeof(char)*16);
-   	strcpy(Country[i],dic[i]);
-}
-
-int * Country_num = malloc(sizeof(int)*23);
-for(int i=0; i<22; i++) {
-   	Country_num[i]=ndic[i];
-}	
+int seat[41] = {0};
 
 
-void Country_Free() {
-	for(int i=0; i<22; i++) {
-		free(Country[i]);
-	free(Country);
-	free(Country_num); 
-}
+void Airplane_Time() {
+    int check = 1;
+    time_t tnow;
+    struct tm* t;
+    time(&tnow);
+    t = (struct tm*) localtime(&tnow);
 
-struct Airplane_info {
-	char Starting_Point[15];
-	char Ending_Point[15];	
-}
-
-void Airplane_Reservation_Asia() {
+    while(check) {
+		printf("When would you like to leave??\n" );    
+		printf("month: ");
+		scanf(" %d", &P_time.month);
+		printf("Day: ");
+		scanf(" %d", &P_time.day);
+        
+		if(P_time.month >= t->tm_mon+1) {
+			if(P_time.day >= t->tm_mday) {
+            	break;
+        	} else { printf("worng day \n"); }
+		} else { printf("worng month\n"); }
+    }
 	
-} 
+ 	
+    for(int i=2; i<=24; i+=2) {
+        printf("%d o'clock   ", i);
+        if(i % 8 == 0) printf("\n");
+    }
 
-void Airplane_Reservation_Oceania() {
-
-}
-
-void Airplane_Reservation_Europe() {
-
-}
-
-void Airplane_Reservation_Africa() {
-
-}
-
-void Airplane_Reservation_NorthAmerica() {
-
-}
-
-void Airplane_Reservation_SouthAmerica() {
-
+	printf("What time are you going? \n");
+    while(check) {
+		scanf(" %d", &P_time.hour);
+		if(P_time.hour >= t->tm_hour) {
+            break;
+        } else { printf("worng hour\n"); }
+    }
+	
+	
 }
 
 void Airplane_Seat() {
-	bool seat[10][8];
-	for (int i=0; i<10; i++) {
-		for(int j=0; i<8; i++) {
-			if (seat[i][j]) == false {
-				printf("□ ");   
-			} else {
-				printf("■ ");
-			}
-			if (j == 4) printf("   ");
+	int seats;
+	for (int i=1; i<41; i++) {
+		if (seat[i] == 0) {
+			printf("□ ");   
+		} else {
+			printf("■ ");
 		}
-		printf("\n");
+
+		if ( i % 4 == 0 ) printf("  ");
+		if ( i % 8 == 0 ) printf("\n");
+		
 	}
+	
+	printf("Choice Seat: ");
+	scanf(" %d", &P_info.Seat);
+		
 }
 
-void Airplane_Time() {
-	time_t tnow;
-	struct tm* t;
-	time(&tnow);
-	t = (struct tm*) localtime(&time);
-	printf("When would you like to leave??");	
-	
-	while(1) {
-		printf("month: ");
-		scanf(" %d", P_time.month);
-		printf("day: ");	
-		scanf("day: %d", P_time.day);		
-		
-		if(P_time.month >= t->tm_month + 1) {
-			if(P_time.day >= t->mday) {
-				break; 
-			} else { printf("worng day \n");}	
-		} else { printf("worng month \n");} 
-	}
+void Airplane_information() {
+	printf("Starting: %s\n", P_info.Starting);
+	printf("Ending  : %s\n", P_info.Ending);
+	printf("SeatNum : %d\n", P_info.Seat);
+	printf("TakeoffTime: %d %d %d\n", P_time.month, P_time.day, P_time.hour );
+	printf("Have a good Day");
 
-	for(int i=2; i<24; i+=2) {
-		printf("%d o'clock   ", i);  			
-		if(i / 8 == 0) printf("\n");
-	}
-	
-	printf("What time are you going \n);"
-	while(1) {
-		scanf("%d", P_time.hour);
-		if(P_time.hour > t_tm->hour) {
-			break;		
-		} else { printf("worng hour\n"); }
-	}	
 }
 
 void Menual() {
-	struct P_info P_info;
-	while(cancel < 1) {
-		printf("Whrer are you?? \n");
-		scanf("s", &P_info.Starting);		
-		
-   		printf("Where you going?? \n");
-		scanf("%s", &P_info.Ending);
-     	
-		for(int i=0; i<22; i++) {
-			if(strcmp(Country[i], &Ending)) {
-				P_info.CountryCode = Country_num[i];
-				P_info.Country = Country[i];	
-			}
-		}
-
-	}
-}   
+	// User's Guide
+}
 
